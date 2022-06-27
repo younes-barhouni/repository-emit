@@ -1,0 +1,22 @@
+
+name: 'Repository Emit'
+description: 'Create a repository emit event'
+inputs:
+  token:
+    description: 'A repo scoped GitHub Personal Access Token'
+    required: true
+  repo:
+    description: 'The repository target name to send the event.'
+    default: ${{ github.repository }}
+  event:
+    description: 'Custom event name.'
+    required: true
+  data:
+    description: 'JSON data to send with the custom event that your action may use.'
+    default: '{}'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+branding:
+  icon: 'target'
+  color: 'gray-dark'
